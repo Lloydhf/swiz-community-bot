@@ -1,0 +1,36 @@
+{
+  "VERSION": "v6.0.0",
+  "CREATOR": "lloydfps",
+  "VOICE": {
+    "CHANNEL_ID": "",
+    "STREAM_URL": "https://www.twitch.tv/lloydhf"
+  },
+  "STREAM": {
+    "MESSAGE": "Swiz 🤍 Lloyd",
+    "TYPE": 1,
+    "EMOJI": "❤️"
+  },
+  "IDS": {
+    "TICKET_KATEGORI": "",
+    "DESTEK_ROL_1": "",
+    "DESTEK_ROL_2": "",
+    "AILE_UYESI_ROL": "",
+    "LOG_KANALI": "",
+    "MADDEX_LOG_KANALI": "",
+    "YOKLAMA_LOG_KANALI": "",
+    "EVERYONE_ROL": "",
+    "SWIZ_ROL": "",
+    "DOST_ROL": "",
+    "PRIVILEGED_ID_1": "",
+    "PRIVILEGED_ID_2": "",
+    "PRIVILEGED_ID_3": "",
+    "PRIVILEGED_ID_4": ""
+  },
+  "WARNING_ROLES": {
+    "SOZLU": "",
+    "STRIKE1": "",
+    "STRIKE2": "",
+    "STRIKE3": ""
+  },
+  "GUARD_WHITELIST": []
+}

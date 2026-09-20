@@ -1,0 +1,458 @@
+[
+  {
+    "options": [],
+    "name": "komutlar",
+    "description": "Komut menüsünü gösterir",
+    "type": 1
+  },
+  {
+    "options": [],
+    "name": "bot",
+    "description": "Bot bilgilerini gösterir",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "name": "kullanici",
+        "description": "Bilgisi gösterilecek kullanıcı",
+        "required": false,
+        "type": 6
+      }
+    ],
+    "name": "bilgi",
+    "description": "Kullanıcı bilgilerini gösterir",
+    "type": 1
+  },
+  {
+    "options": [],
+    "name": "alesta",
+    "description": "Sunucu durumunu gösterir",
+    "type": 1
+  },
+  {
+    "options": [],
+    "name": "aktif",
+    "description": "Sunucuda aktif olan Swiz üyelerini listeler (Dost rolü hariç)",
+    "type": 1
+  },
+  {
+    "options": [],
+    "name": "swiz",
+    "description": "Alesta RP'de Swiz taglı oyuncuları listeler",
+    "type": 1
+  },
+  {
+    "options": [],
+    "name": "sunucular",
+    "description": "Tüm sunucuları listeler",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "type": 3,
+        "choices": [
+          {
+            "name": "Alesta RP",
+            "value": "Alesta RP"
+          },
+          {
+            "name": "GUID PVP",
+            "value": "GUID PVP"
+          },
+          {
+            "name": "MD PVP",
+            "value": "MD PVP"
+          },
+          {
+            "name": "FAVE PVP",
+            "value": "FAVE PVP"
+          },
+          {
+            "name": "MD RP",
+            "value": "MD RP"
+          },
+          {
+            "name": "GUN PVP",
+            "value": "GUN PVP"
+          },
+          {
+            "name": "WELL GUN",
+            "value": "WELL GUN"
+          },
+          {
+            "name": "WILDGUN",
+            "value": "WILDGUN"
+          },
+          {
+            "name": "FXGUN",
+            "value": "FXGUN"
+          },
+          {
+            "name": "LOLPVP",
+            "value": "LOLPVP"
+          },
+          {
+            "name": "PGUN",
+            "value": "PGUN"
+          }
+        ],
+        "name": "sunucu",
+        "description": "Sunucu seçin",
+        "required": true
+      },
+      {
+        "type": 4,
+        "name": "id",
+        "description": "ID Check",
+        "required": true
+      }
+    ],
+    "name": "id",
+    "description": "Sunucuda ID ile oyuncu bul",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "type": 3,
+        "name": "isim",
+        "description": "Aranacak oyuncu adı",
+        "required": true
+      },
+      {
+        "type": 3,
+        "choices": [
+          {
+            "name": "Alesta RP",
+            "value": "Alesta RP"
+          },
+          {
+            "name": "GUID PVP",
+            "value": "GUID PVP"
+          },
+          {
+            "name": "MD PVP",
+            "value": "MD PVP"
+          },
+          {
+            "name": "FAVE PVP",
+            "value": "FAVE PVP"
+          },
+          {
+            "name": "MD RP",
+            "value": "MD RP"
+          },
+          {
+            "name": "GUN PVP",
+            "value": "GUN PVP"
+          },
+          {
+            "name": "WELL GUN",
+            "value": "WELL GUN"
+          },
+          {
+            "name": "WILDGUN",
+            "value": "WILDGUN"
+          },
+          {
+            "name": "FXGUN",
+            "value": "FXGUN"
+          },
+          {
+            "name": "LOLPVP",
+            "value": "LOLPVP"
+          },
+          {
+            "name": "PGUN",
+            "value": "PGUN"
+          },
+          {
+            "name": "Tüm Sunucular",
+            "value": "all"
+          }
+        ],
+        "name": "sunucu",
+        "description": "Sunucu seçin",
+        "required": false
+      }
+    ],
+    "name": "tag",
+    "description": "İsme göre oyuncu ara",
+    "type": 1
+  },
+  {
+    "options": [],
+    "name": "ticket",
+    "description": "Ticket sistemini kurar",
+    "type": 1
+  },
+  {
+    "options": [],
+    "name": "panel",
+    "description": "Aktif Oyuncuları Gösterir",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "type": 4,
+        "name": "sayi",
+        "description": "Süre miktarı (1-100)",
+        "required": true
+      },
+      {
+        "type": 3,
+        "choices": [
+          {
+            "name": "Saniye",
+            "value": "saniye"
+          },
+          {
+            "name": "Dakika",
+            "value": "dakika"
+          },
+          {
+            "name": "Saat",
+            "value": "saat"
+          }
+        ],
+        "name": "birim",
+        "description": "Süre birimi",
+        "required": true
+      }
+    ],
+    "name": "aktiflik",
+    "description": "Aktiflik başlatır (Sadece Swiz Family rolü için)",
+    "type": 1
+  },
+  {
+    "options": [],
+    "name": "aktiflikbitir",
+    "description": "Aktifliği manuel olarak bitirir ve mesajı siler",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "name": "rol",
+        "description": "Maddex Kadrosu yapılacak rol",
+        "required": true,
+        "type": 8
+      },
+      {
+        "type": 4,
+        "name": "sayi",
+        "description": "Süre miktarı (1-100)",
+        "required": true
+      },
+      {
+        "type": 3,
+        "choices": [
+          {
+            "name": "Saniye",
+            "value": "saniye"
+          },
+          {
+            "name": "Dakika",
+            "value": "dakika"
+          },
+          {
+            "name": "Saat",
+            "value": "saat"
+          }
+        ],
+        "name": "birim",
+        "description": "Süre birimi",
+        "required": true
+      }
+    ],
+    "name": "maddex",
+    "description": "Maddex kadrosu oluşturur",
+    "type": 1
+  },
+  {
+    "options": [],
+    "name": "maddexbitir",
+    "description": "Maddexi manuel olarak bitirir ve mesajı siler",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "type": 3,
+        "name": "isim",
+        "description": "Etkinlik adı",
+        "required": true
+      }
+    ],
+    "name": "etkinlik",
+    "description": "Etkinlik kadrosu oluşturur (Max 15 kişi)",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "name": "kullanici",
+        "description": "Uyarılacak kullanıcı",
+        "required": true,
+        "type": 6
+      },
+      {
+        "type": 3,
+        "choices": [
+          {
+            "name": "📝 Sözlü Uyarı",
+            "value": "sozlu"
+          },
+          {
+            "name": "⚠️ 1x Strike",
+            "value": "strike1"
+          },
+          {
+            "name": "⚠️⚠️ 2x Strike",
+            "value": "strike2"
+          },
+          {
+            "name": "⚠️⚠️⚠️ 3x Strike",
+            "value": "strike3"
+          }
+        ],
+        "name": "tip",
+        "description": "Uyarı tipi",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "sebep",
+        "description": "Uyarı sebebi",
+        "required": true
+      }
+    ],
+    "name": "uyari",
+    "description": "Kullanıcıya uyarı verir",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "name": "kullanici",
+        "description": "Bakılacak kullanıcı",
+        "required": true,
+        "type": 6
+      }
+    ],
+    "name": "uyarilar",
+    "description": "Kullanıcının uyarılarını gösterir",
+    "type": 1
+  },
+  {
+    "options": [],
+    "name": "uyariaffi",
+    "description": "Tüm kullanıcıların uyarı rollerini temizler (Yetkili)",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "name": "kullanici",
+        "description": "Uyarısı silinecek kullanıcı",
+        "required": true,
+        "type": 6
+      },
+      {
+        "min_value": 1,
+        "type": 4,
+        "name": "uyari_no",
+        "description": "Silinecek uyarı numarası (/uyarilar ile görebilirsin)",
+        "required": true
+      }
+    ],
+    "name": "uyarisil",
+    "description": "Belirtilen uyarıyı siler",
+    "type": 1
+  },
+  {
+    "options": [],
+    "name": "uyariliste",
+    "description": "Tüm kullanıcıların uyarılarını listeler (Yetkili)",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "type": 4,
+        "name": "miktar",
+        "description": "Silinecek mesaj sayısı (1-100)",
+        "required": true
+      }
+    ],
+    "name": "clear",
+    "description": "Belirtilen sayıda mesaj siler",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "name": "kullanici",
+        "description": "Atılacak kullanıcı",
+        "required": true,
+        "type": 6
+      },
+      {
+        "type": 3,
+        "name": "sebep",
+        "description": "Atma sebebi",
+        "required": false
+      }
+    ],
+    "name": "kick",
+    "description": "Kullanıcıyı sunucudan atar",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "name": "kullanici",
+        "description": "Yasaklanacak kullanıcı",
+        "required": true,
+        "type": 6
+      },
+      {
+        "type": 3,
+        "name": "sebep",
+        "description": "Yasaklama sebebi",
+        "required": false
+      }
+    ],
+    "name": "ban",
+    "description": "Kullanıcıyı sunucudan yasaklar",
+    "type": 1
+  },
+  {
+    "options": [
+      {
+        "type": 3,
+        "name": "kullanici_id",
+        "description": "Yasağı kaldırılacak kullanıcı ID",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "sebep",
+        "description": "Sebep",
+        "required": false
+      }
+    ],
+    "name": "unban",
+    "description": "Banlı kullanıcının yasağını kaldırır",
+    "type": 1
+  },
+  {
+    "options": [],
+    "name": "banlar",
+    "description": "Banlanmış kullanıcıları listeler",
+    "type": 1
+  }
+]
