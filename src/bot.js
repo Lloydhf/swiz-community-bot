@@ -2666,7 +2666,7 @@ class SwizBot {
     // 🟢 AKTİF KOMUTU ANA İŞLEM
     // ========================================================================
     async processAktifCommand(source, isSlash = false) {
-        const guild = isSlash ? source.guild : source.guild;
+        const guild = source.guild;
         const swizRoleId = CONFIG.IDS.SWIZ_ROL;
         const dostRoleId = CONFIG.IDS.DOST_ROL;
         
@@ -2680,6 +2680,8 @@ class SwizBot {
             return;
         }
 
+        // Üyeleri getirmek Discord'un ilk yanıt süresini aşabilir.
+        if (isSlash && !source.deferred && !source.replied) await source.deferReply();
         await guild.members.fetch();
 
         const onlineSwizMembers = guild.members.cache.filter(member => {
@@ -2691,11 +2693,24 @@ class SwizBot {
                     member.presence?.status === 'dnd');
         });
 
-        const memberList = onlineSwizMembers.map(m => `• ${m.user}`).join('\n');
+        const memberLines = onlineSwizMembers.map(m => `• ${m.user}`);
         const count = onlineSwizMembers.size;
 
-        let description = `**Sunucuda şu anda ${count} aktif Swiz üyesi bulunuyor.**\n\n`;
-        description += memberList || 'Henüz aktif Swiz üyesi yok.';
+        const heading = `**Sunucuda şu anda ${count} aktif Swiz üyesi bulunuyor.**\n\n`;
+        const fullDescription = heading + (memberLines.join('\n') || 'Henüz aktif Swiz üyesi yok.');
+        let description = fullDescription;
+        const files = [];
+        if (fullDescription.length > 4096) {
+            const footer = '\n\nTam üye listesi ekli metin dosyasında.';
+            description = heading;
+            for (const line of memberLines) {
+                if (description.length + line.length + 1 + footer.length > 4096) break;
+                description += line + '\n';
+            }
+            description += footer;
+            const fullList = onlineSwizMembers.map(m => `${m.displayName || m.user.username || m.id} (${m.id})`).join('\n');
+            files.push({ attachment: Buffer.from(`${count} aktif Swiz üyesi\n\n${fullList}`, 'utf8'), name: 'swiz-aktif-uyeler.txt' });
+        }
 
         const embed = new EmbedBuilder()
             .setTitle('🟢 Swiz Aktifler')
@@ -2704,14 +2719,17 @@ class SwizBot {
             .setTimestamp()
             .setFooter({ text: 'Swiz Bot\'s • Aktiflik Sistemi' });
 
+        const payload = { embeds: [embed], files, allowedMentions: { parse: [] } };
         if (isSlash) {
             if (source.deferred) {
-                await source.editReply({ embeds: [embed] });
+                await source.editReply(payload);
+            } else if (source.replied) {
+                await source.followUp(payload);
             } else {
-                await source.reply({ embeds: [embed] });
+                await source.reply(payload);
             }
         } else {
-            await source.channel.send({ embeds: [embed] });
+            await source.channel.send(payload);
         }
     }
 

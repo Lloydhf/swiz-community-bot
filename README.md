@@ -10,12 +10,15 @@ Discord community tools for support tickets, moderation, attendance and persiste
 - Event capacity, waiting lists and saved rosters: [activities](src/activities.js).
 - SQLite migrations and local backups: [database](src/database.js).
 - Permission failures and recovery behavior: [offline tests](test/core.test.js).
+- Slow member lookups and large active-member lists: [active-list regression tests](test/aktif.test.js).
+
+The September 2026 update acknowledges `/aktif` before fetching members, then edits the response when the result is ready. Lists larger than Discord's embed limit include a complete text attachment. Both slash and prefix command behavior are covered by offline tests.
 
 ## Run locally
 
 Use Node.js 22+. Run `npm ci`. Copy `.env.example` to `.env` and `config.example.json` to `config.local.json`, then provide your own configuration. `PRIVILEGED_ID_1` through `PRIVILEGED_ID_4` replace deployment-specific IDs in the legacy permission map; leave them empty to grant no additional access, or configure intentionally. Never commit local configuration.
 
-Run `npm run check` and `npm test`. Start with `npm start` only when ready to connect to Discord. Startup registers global slash commands. Enable the privileged intents required by the bot in your own application and test on a dedicated server.
+Run `npm run check` and `npm test`. [GitHub Actions](.github/workflows/ci.yml) repeats these checks on Node.js 22 for pushes and pull requests without bot credentials. Start with `npm start` only when ready to connect to Discord. Startup registers global slash commands. Enable the privileged intents required by the bot in your own application and test on a dedicated server.
 
 ## Design and limitations
 

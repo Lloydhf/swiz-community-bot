@@ -15,13 +15,15 @@ npm start
 
 Yeni kurulumda `.env.example` dosyasını `.env`, `config.example.json` dosyasını `config.local.json` olarak kopyalayıp ayarla. Token yalnız `.env` içinde tutulur. Bot veritabanını çalışma dizinine göre değil proje konumuna göre bulur. `SWIZ_DATA_DIR` özel bir veri dizini seçebilir.
 
-Ana giriş `index.js` dosyasıdır. `index2.js` eski alternatif sürümdür; yeni özellikler ana girişte bulunur. Aynı botu birden çok girişten eşzamanlı başlatma. Slash komutları giriş başarılı olduğunda mevcut global kapsamda kaydedilir. Discord Developer Portal'da Server Members, Presence ve Message Content intent'lerinin botun kullanımına uygun olması gerekir.
+Ana giriş `index.js` dosyasıdır; `npm start` bu dosyayı çalıştırır. `src/bot.js` tek başına başlangıç dosyası değildir. Eski alternatif giriş `index2.js` bu depoya dahil değildir. Aynı botu birden çok girişten eşzamanlı başlatma. Slash komutları giriş başarılı olduğunda mevcut global kapsamda kaydedilir. Discord Developer Portal'da Server Members, Presence ve Message Content intent'lerinin botun kullanımına uygun olması gerekir.
 
 ## Korunan komutlar
 
 `/komutlar`, `/bot`, `/bilgi`, `/alesta`, `/aktif`, `/swiz`, `/sunucular`, `/id`, `/tag`, `/ticket`, `/panel`, `/aktiflik`, `/aktiflikbitir`, `/maddex`, `/maddexbitir`, `/etkinlik`, `/uyari`, `/uyarilar`, `/uyariaffi`, `/uyarisil`, `/uyariliste`, `/clear`, `/kick`, `/ban`, `/unban`, `/banlar`.
 
 Mesaj komutları: `!id`, `!tag`, `!swiz`, `!aktif`.
+
+`/aktif`, üye listesini sorgulamadan önce ilk yanıtı verir; sonuç hazır olduğunda bu yanıtı günceller. Çevrimiçi, boşta veya rahatsız etmeyin durumundaki Swiz üyeleri listelenir; botlar ve Dost rolü taşıyanlar dışlanır. Liste Discord'un açıklama sınırını aşarsa tam liste metin dosyası olarak eklenir. `!aktif` aynı filtreleri kullanır. Üye sorgusu başarısız olduğunda tamamlanamayan işlem hata yanıtıyla sonuçlanır.
 
 ## Yeni araçlar
 
@@ -50,6 +52,8 @@ Geri dönüş için botu durdur, güncel veriyi ayrıca koru ve seçtiğin yede�
 ## Test kapsamı
 
 Otomatik testler Discord'a bağlanmadan geçici veritabanları kullanır. Eski komut seçenekleri, yetkisiz işlemler, ticket eşzamanlılığı, başarısız kanal oluşturma, etkinlik bekleme listesi, tek bitiş işlemi, istatistikler ve yedekten okuma sınanır. `test/legacy-commands.json` önceki komut tanımlarının uyumluluk kaydıdır.
+
+`test/aktif.test.js`, erken yanıt sırasını, üye filtrelerini, 400 üyelik listenin eksiksiz dosyaya aktarılmasını, boş prefix komutu sonucunu ve başarısız üye sorgusunu denetler. GitHub Actions, her gönderim ve pull request için Node.js 22 üzerinde kurulumu ve çevrimdışı kontrolleri tekrarlar.
 
 Gerçek Discord rol hiyerarşisi, kanal izinleri, FiveM erişimi ve ses bağlantısı ayrıca canlı deneme gerektirir. FiveM sorgulanamadığında bunu boş oyuncu listesi gibi sunmaz; çoklu sunucu aramasında ulaşılamayan sunucuları belirtir.
 
